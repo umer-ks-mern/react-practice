@@ -1,32 +1,90 @@
-import Intro from './Intro';
-import Profile from './Profile';
+import Book from "./Book";
 import "./App.css";
-import { useState } from 'react';
 
 function App() {
-  const [flag, setFlag] = useState(false)
-  const [name, setName] = useState("Hamza")
+  const books = [
+    {
+      title: "Book 1",
+      description: "Description of Book 1",
+      image:
+        "https://www.rd.com/wp-content/uploads/2021/05/books_quote1.jpg?resize=768%2C768",
+    },
+    {
+      title: "Book 2",
+      description: "Description of Book 2",
+      image:
+        "https://www.rd.com/wp-content/uploads/2021/05/books_quote1.jpg?resize=768%2C768",
+    },
+    {
+      title: "Book 3",
+      description: "Description of Book 3",
+      image:
+        "https://www.rd.com/wp-content/uploads/2021/05/books_quote1.jpg?resize=768%2C768",
+    },
+    {
+      title: "Book 4",
+      description: "Description of Book 4",
+      image:
+        "https://www.rd.com/wp-content/uploads/2021/05/books_quote1.jpg?resize=768%2C768",
+    },
+    {
+      title: "Book 5",
+      description: "Description of Book 5",
+      image:
+        "https://www.rd.com/wp-content/uploads/2021/05/books_quote1.jpg?resize=768%2C768",
+    },
+    {
+      title: "Book 6",
+      description: "Description of Book 6",
+      image:
+        "https://www.rd.com/wp-content/uploads/2021/05/books_quote1.jpg?resize=768%2C768",
+    },
+    {
+      title: "Book 7",
+      description: "Description of Book 7",
+      image:
+        "https://www.rd.com/wp-content/uploads/2021/05/books_quote1.jpg?resize=768%2C768",
+    },
+    {
+      title: "Book 8",
+      description: "Description of Book 8",
+      image:
+        "https://www.rd.com/wp-content/uploads/2021/05/books_quote1.jpg?resize=768%2C768",
+    },
+    {
+      title: "Book 9",
+      description: "Description of Book 9",
+      image:
+        "https://www.rd.com/wp-content/uploads/2021/05/books_quote1.jpg?resize=768%2C768",
+    },
+    {
+      title: "Book 10",
+      description: "Description of Book 10",
+      image:
+        "https://www.rd.com/wp-content/uploads/2021/05/books_quote1.jpg?resize=768%2C768",
+    },
+  ];
 
-  const handleClick = (e) =>{
-    e.preventDefault();
-    const tempFlag = !flag
-
-    console.log( tempFlag, "this is temp")
-    //there is delay in setFlag so this missbahaves sometimes
-    
-    setFlag(!flag)
-    console.log( flag, "this is flag")
-
-    flag? setName("Alyan"): setName("Umer")
-  }
   return (
-    <div>
-      <Intro name={name}/>
-      <button onClick={handleClick}>Change name</button>
-      <Profile />
-    </div>
+    <>
+      <header className="App-header">
+        <h1>My Book Library</h1>
+      </header>
+      <body className="App">
+        <div>
+          {books.map((elem) => {
+            return (
+              <Book
+                title={elem.title}
+                description={elem.description}
+                image={elem.image}
+              />
+            );
+          })}
+        </div>
+      </body>
+    </>
   );
-  
 }
 
 export default App;
