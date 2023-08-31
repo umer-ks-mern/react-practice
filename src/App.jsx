@@ -1,12 +1,14 @@
 import Book from "./Book";
 import "./App.css";
+// import book_logo from "./images/img.png"; 
+//we will have to import local images to use direct path will not work not relative nor absolute
 
 function App() {
   const books = [
     {
       title: "Book 1",
       description: "Description of Book 1",
-      image:
+      image: 
         "https://www.rd.com/wp-content/uploads/2021/05/books_quote1.jpg?resize=768%2C768",
     },
     {
@@ -63,6 +65,18 @@ function App() {
       image:
         "https://www.rd.com/wp-content/uploads/2021/05/books_quote1.jpg?resize=768%2C768",
     },
+    {
+      title: "Book 11",
+      description: "Description of Book 11",
+      image:
+        "https://www.rd.com/wp-content/uploads/2021/05/books_quote1.jpg?resize=768%2C768",
+    },
+    {
+      title: "Book 12",
+      description: "Description of Book 12",
+      image:
+        "https://www.rd.com/wp-content/uploads/2021/05/books_quote1.jpg?resize=768%2C768",
+    },
   ];
 
   return (
@@ -72,15 +86,14 @@ function App() {
       </header>
       <body className="App">
         <div>
-          {books.map((elem) => {
-            return (
-              <Book
-                title={elem.title}
-                description={elem.description}
-                image={elem.image}
-              />
-            );
-          })}
+          {books.map((elem, index) => (
+            <Book
+              key={index+1}
+              title={elem.title}
+              description={elem.description}
+              image={elem.image}
+            />
+          ))}
         </div>
       </body>
     </>
